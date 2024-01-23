@@ -3,6 +3,7 @@
 //
 
 #include "membership.h"
+
 // Initialize the static mutex
 std::mutex Membership::m_MembershipMutex;
 

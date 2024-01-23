@@ -13,6 +13,7 @@
 #include <arpa/inet.h>
 #include <netdb.h>
 #include "membership.h"
+#include <unordered_map>
 #define INTRODUCER_PORT 5001
 #define HEARTBEAT_PORT 5001
 #define COMMUNICATION_PORT 5002
@@ -70,13 +71,13 @@ public:
 
     std::string GetMachineIp(int id)
     {
-        return m_MachineMapIdToIp[id];
+        return this->m_MachineMapIdToIp[id];
     }
     bool IsIntroducer(){
-        return m_IsIntroducer;
+        return this->m_IsIntroducer;
     }
     std::string getIntroducerIp(){
-        return m_IntroducerIp;
+        return this->m_IntroducerIp;
     }
 
     std::string toString();
