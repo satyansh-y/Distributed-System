@@ -256,7 +256,11 @@ int Machine::ParseCommandArgs(int argc, char *argv[])
     std::cout << "IP: " << ip_address << std::endl;
     this->m_MyIp = ip_address;
     this->m_Id = 0;
+    std::cout<<"here"<<std::endl;
     this->m_Membership = new Membership(reinterpret_cast<std::string &>(this->m_Id), reinterpret_cast<std::string &>(this->m_MyIp));
+    std::cout<<"here"<<std::endl;
     this->m_IntroducerIp = "127.0.0.1";
+    std::cout<<"here"<<std::endl;
+
     return 0;
 }
