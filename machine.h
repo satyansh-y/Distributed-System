@@ -22,7 +22,7 @@
 class Machine
 {
 private:
-    uint32_t m_Id;
+    std::string m_Id;
     bool m_IsIntroducer;
     //    sockaddr_in serverAddress;
     std::string m_Status;
@@ -45,7 +45,7 @@ public:
     // #TODO: creates id in the form "machine number - ip - timestamp(version)"
     std::string CreateId(int num);
     virtual int HandleNewConnection(int fd, char *ip);
-    int GetId() const
+    std::string GetId() const
     {
         return m_Id;
     }

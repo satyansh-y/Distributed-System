@@ -255,9 +255,9 @@ int Machine::ParseCommandArgs(int argc, char *argv[])
     std::string ip_address = inet_ntoa(*((struct in_addr *)h->h_addr_list[0]));
     std::cout << "IP: " << ip_address << std::endl;
     this->m_MyIp = ip_address;
-    this->m_Id = 0;
+    this->m_Id = "0";
     std::cout<<"here"<<std::endl;
-    this->m_Membership = new Membership(reinterpret_cast<std::string &>(this->m_Id), reinterpret_cast<std::string &>(this->m_MyIp));
+    this->m_Membership = new Membership(this->m_Id, this->m_MyIp);
     std::cout<<"here"<<std::endl;
     this->m_IntroducerIp = "127.0.0.1";
     std::cout<<"here"<<std::endl;

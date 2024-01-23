@@ -11,3 +11,6 @@
 3	291	1706040476894111946	CMakeFiles/Distributed_System.dir/machine.cpp.o	bc53a132bae4408d
 4	309	1706040476910298967	CMakeFiles/Distributed_System.dir/membership.cpp.o	b174f2af37cde53f
 309	351	1706040476954899649	Distributed_System	f5d4c466915fd3e9
+2	425	1706041016460489839	CMakeFiles/Distributed_System.dir/main.cpp.o	a1ac3180003c8cb1
+3	431	1706041016467661900	CMakeFiles/Distributed_System.dir/machine.cpp.o	bc53a132bae4408d
+431	475	1706041016512586829	Distributed_System	f5d4c466915fd3e9
