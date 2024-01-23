@@ -123,7 +123,7 @@ void Membership::SerializeMembership(char *buffer)
         oss.seekp(-1, std::ios_base::end); // Remove the trailing comma
     }
     oss << "}";
-    std::strcpy(buffer, oss.str().c_str());
+    strcpy(buffer, oss.str().c_str());
 }
 
 const char *Membership::DeserializeMembership(const std::string &serializedData)

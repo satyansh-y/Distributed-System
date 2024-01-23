@@ -14,6 +14,7 @@
 #include <netdb.h>
 #include "membership.h"
 #include <unordered_map>
+#include <cstring>
 #define INTRODUCER_PORT 5001
 #define HEARTBEAT_PORT 5001
 #define COMMUNICATION_PORT 5002
