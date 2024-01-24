@@ -63,6 +63,10 @@ int Machine::Join(const char *ip)
 
     close(clientSocket);
 
+    for(auto &entry : this->m_Membership->m_MembershipList){
+        std::cout << entry.first << " " << entry.second->GetIp() << std::endl;
+    }
+
     return 0;
 }
 
