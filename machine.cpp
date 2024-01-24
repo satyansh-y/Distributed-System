@@ -99,9 +99,9 @@ int Machine::CreateSocket(const char *ip, int port, int protocol, int client)
     sockaddr_in serverAddress = {};
     serverAddress.sin_family = AF_INET;
     serverAddress.sin_port = htons(port);
-    serverAddress.sin_addr.s_addr = INADDR_ANY;
-    //    serverAddress.sin_addr.s_addr = strcmp(ip, "ANY") == 0 ? INADDR_ANY : inet_addr(ip);
-    std::cout << (strcmp(ip, "ANY") == 0) << std::endl;
+//    serverAddress.sin_addr.s_addr = INADDR_ANY;
+    serverAddress.sin_addr.s_addr = strcmp(ip, "ANY") == 0 ? INADDR_ANY : inet_addr(ip);
+//    std::cout << (strcmp(ip, "ANY") == 0) << std::endl;
     if (client)
     {
         if (connect(sock, reinterpret_cast<struct sockaddr *>(&serverAddress), sizeof(serverAddress)) == -1)
