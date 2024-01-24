@@ -203,7 +203,7 @@ int Machine::ParseCommandArgs(int argc, char *argv[])
     // TODO: error checking arguments
     // TODO: assign variables
     std::string introducer_ip;
-//    std::string ip_address;
+    std::string ip_address;
     for (int i = 1; i < argc; ++i)
     {
         if (strcmp(argv[i], "-I") == 0)
@@ -227,7 +227,7 @@ int Machine::ParseCommandArgs(int argc, char *argv[])
         }
         if (strcmp(argv[i], "-ip") == 0)
         {
-//            ip_address = argv[i + 1];
+            ip_address = argv[i + 1];
             i++;
             continue;
         }
@@ -239,15 +239,15 @@ int Machine::ParseCommandArgs(int argc, char *argv[])
     //        exit(1);
     //    }
 
-    int arbitrary_size = 1024;
-    char hostname[arbitrary_size];
-    hostname[arbitrary_size - 1] = '\0';
-    gethostname(hostname, arbitrary_size - 1);
-    struct hostent *h;
-    h = gethostbyname(hostname);
-    std::string ip_address = inet_ntoa(*((struct in_addr *)h->h_addr_list[0]));
-    printf("Hostname: %s\n", hostname);
-    printf("Host IP: %s\n", inet_ntoa(*((struct in_addr *)h->h_addr_list[0])));
+//    int arbitrary_size = 1024;
+//    char hostname[arbitrary_size];
+//    hostname[arbitrary_size - 1] = '\0';
+//    gethostname(hostname, arbitrary_size - 1);
+//    struct hostent *h;
+//    h = gethostbyname(hostname);
+//    std::string ip_address = inet_ntoa(*((struct in_addr *)h->h_addr_list[0]));
+//    printf("Hostname: %s\n", hostname);
+//    printf("Host IP: %s\n", inet_ntoa(*((struct in_addr *)h->h_addr_list[0])));
 
     this->m_MyIp = ip_address;
     this->m_IsIntroducer = strcmp(ip_address.c_str(), introducer_ip.c_str()) == 0;
