@@ -203,13 +203,14 @@ int Machine::ParseCommandArgs(int argc, char *argv[])
     // TODO: error checking arguments
     // TODO: assign variables
     std::string introducer_ip;
+//    std::string ip_address;
     for (int i = 1; i < argc; ++i)
     {
         if (strcmp(argv[i], "-I") == 0)
         {
-            this->m_IsIntroducer = true;
+//            this->m_IsIntroducer = true;
 
-            //            introducer_ip = argv[i + 1];
+            introducer_ip = argv[i + 1];
 
             // if (std::all_of(argv[i + 1], argv[i + 1] + strlen(argv[i + 1]), ::isdigit))
             // {
@@ -221,23 +222,15 @@ int Machine::ParseCommandArgs(int argc, char *argv[])
             //     exit(1);
             // }
 
-            //            i++;
+            i++;
             continue;
         }
-        //        if (strcmp(argv[i], "-id") == 0)
-        //        {
-        //            if (std::all_of(argv[i + 1], argv[i + 1] + strlen(argv[i + 1]), ::isdigit))
-        //            {
-        //                std::cout << "ID: " << argv[i + 1] << std::endl;
-        //            }
-        //            else
-        //            {
-        //                std::cerr << "Error: ID must be a number.\n";
-        //                exit(1);
-        //            }
-        //            i++;
-        //            continue;
-        //        }
+        if (strcmp(argv[i], "-ip") == 0)
+        {
+//            ip_address = argv[i + 1];
+            i++;
+            continue;
+        }
         std::cerr << "Usage: ./machine <introducer_ip> <id>\n";
     }
     //    if (argc < 5)
@@ -253,14 +246,20 @@ int Machine::ParseCommandArgs(int argc, char *argv[])
     struct hostent *h;
     h = gethostbyname(hostname);
     std::string ip_address = inet_ntoa(*((struct in_addr *)h->h_addr_list[0]));
-    std::cout << "IP: " << ip_address << std::endl;
+    printf("Hostname: %s\n", hostname);
+    printf("Host IP: %s\n", inet_ntoa(*((struct in_addr *)h->h_addr_list[0])));
+
     this->m_MyIp = ip_address;
+    this->m_IsIntroducer = strcmp(ip_address.c_str(), introducer_ip.c_str()) == 0;
     this->m_Id = "0";
-    std::cout<<"here"<<std::endl;
     this->m_Membership = new Membership(this->m_Id, this->m_MyIp);
-    std::cout<<"here"<<std::endl;
-    this->m_IntroducerIp = "127.0.0.1";
-    std::cout<<"here"<<std::endl;
+
+    #ifdef DEBUG
+    // Debug code here
+    std::cout << "MyIP: " << ip_address << std::endl;
+    std::cout << "IntroducerIP: " << introducer_ip << std::endl;
+    std::cout << "isIntroducer: " << this->m_IsIntroducer << std::endl;
+    #endif
 
     return 0;
 }

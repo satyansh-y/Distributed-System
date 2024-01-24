@@ -18,6 +18,7 @@
 #define INTRODUCER_PORT 5001
 #define HEARTBEAT_PORT 5001
 #define COMMUNICATION_PORT 5002
+#define DEBUG
 
 class Machine
 {
