@@ -253,7 +253,7 @@ int Machine::ParseCommandArgs(int argc, char *argv[])
     this->m_IsIntroducer = strcmp(ip_address.c_str(), introducer_ip.c_str()) == 0;
     this->m_Id = "0";
     this->m_Membership = new Membership(this->m_Id, this->m_MyIp);
-
+    this->m_IntroducerIp = introducer_ip;
     #ifdef DEBUG
     // Debug code here
     std::cout << "MyIP: " << ip_address << std::endl;
